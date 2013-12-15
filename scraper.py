@@ -11,7 +11,7 @@ YAHOO_SEARH = 'http://hk.blog.search.yahoo.com/search/blog?p={query}&ygmasrchbtn
 
 
 def main(query, data_dir):
-    print('Starting search for {0}...'.format(query))
+    print('Starting search...')
 
     paginate(query, WRETCH_SEARCH, 'wretch', r'wretch\.cc/blog/([^/<?%]+)',
         data_dir)
@@ -37,7 +37,7 @@ def paginate(query, template_url, name, pattern, data_dir):
 
         time.sleep(1)
 
-    path = os.path.join(data_dir, '{0}.{1}.txt'.format(query, name))
+    path = '{0}.{1}.txt'.format(data_dir, name)
     with open(path, 'wb') as out_file:
         for username in usernames:
             out_file.write(username)
