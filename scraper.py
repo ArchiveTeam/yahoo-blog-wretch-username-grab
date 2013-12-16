@@ -5,7 +5,7 @@ import time
 import urllib2
 
 
-USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
 WRETCH_SEARCH = 'http://tw.blog.search.yahoo.com/search?fr=cb-wretch&type=web&provider=wretch&p={query}&xargs=0&pstart=1&b={start}'
 YAHOO_SEARH = 'http://hk.blog.search.yahoo.com/search/blog?p={query}&ygmasrchbtn=blog+search&fr=uh-yblog&xargs=0&pstart=1&b={start}'
 
