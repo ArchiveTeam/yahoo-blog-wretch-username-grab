@@ -35,9 +35,15 @@ For more options, run:
     run-pipeline --help
     
 Running multiple instances on different IPs
--------------------------
+-------------------------------------------
 
-This is not currently supported.
+This feature requires seesaw version 0.0.16 or greater. Use `pip install --upgrade seesaw` to upgrade.
+
+Use the `--context-value` argument to pass in `bind_address=123.4.5.6` (replace the IP address with your own).
+
+Example of running 2 threads, no web interface, and Wget binding of IP address:
+
+    run-pipeline pipeline.py --concurrent 2 YOURNICKHERE --disable-web-server --context-value bind_address=123.4.5.6
 
 Distribution-specific setup
 -------------------------

@@ -68,6 +68,22 @@ def search(url):
 
 
 if __name__ == '__main__':
+    if os.environ.get('SCRAPER_BIND_ADDRESS'):
+        # http://stackoverflow.com/questions/1150332/source-interface-with-python-and-urllib2
+        sourceIP = os.environ['SCRAPER_BIND_ADDRESS']
+        import socket
+        true_socket = socket.socket
+
+        def bound_socket(*a, **k):
+            sock = true_socket(*a, **k)
+            sock.bind((sourceIP, 0))
+            return sock
+        socket.socket = bound_socket
+
+        print('+' * 20)
+        print('Scraper will bind to IP address', sourceIP)
+        print('+' * 20)
+
     query = sys.argv[1]
     data_dir = sys.argv[2]
     main(query, data_dir)

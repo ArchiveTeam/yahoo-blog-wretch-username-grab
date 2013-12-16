@@ -24,7 +24,7 @@ if StrictVersion(seesaw.__version__) < StrictVersion("0.1.4"):
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = "20131215.01"
+VERSION = "20131216.00"
 TRACKER_ID = 'shipwretched'
 TRACKER_HOST = 'tracker.archiveteam.org'
 
@@ -98,7 +98,8 @@ pipeline = Pipeline(
         "python", "scraper.py",
         ItemInterpolation("%(item_name)s"),
         ItemInterpolation("%(item_dir)s/%(warc_file_base)s")
-        ]
+        ],
+        env={'SCRAPER_BIND_ADDRESS': globals().get('bind_address', '')}
     ),
     PrepareStatsForTracker(
         defaults={ "downloader": downloader, "version": VERSION },
