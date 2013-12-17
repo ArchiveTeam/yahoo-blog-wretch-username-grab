@@ -24,7 +24,7 @@ if StrictVersion(seesaw.__version__) < StrictVersion("0.1.4"):
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = "20131216.00"
+VERSION = "20131217.00"
 TRACKER_ID = 'shipwretched'
 TRACKER_HOST = 'tracker.archiveteam.org'
 
@@ -42,6 +42,7 @@ class PrepareDirectories(SimpleTask):
 
     def process(self, item):
         item_name = item["item_name"]
+        item["item_name_punycode"] = '=PUNY=' + item_name.encode('punycode')
         dirname = "/".join((item["data_dir"], item_name.encode('punycode')))
 
         if os.path.isdir(dirname):
@@ -96,7 +97,7 @@ pipeline = Pipeline(
         'Scraper',
         [
         "python", "scraper.py",
-        ItemInterpolation("%(item_name)s"),
+        ItemInterpolation("%(item_name_punycode)s"),
         ItemInterpolation("%(item_dir)s/%(warc_file_base)s")
         ],
         env={'SCRAPER_BIND_ADDRESS': globals().get('bind_address', '')}

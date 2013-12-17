@@ -86,4 +86,10 @@ if __name__ == '__main__':
 
     query = sys.argv[1]
     data_dir = sys.argv[2]
+
+    if query.startswith('=PUNY='):
+        print('Depuny', query, query[6:])
+        query = query[6:].decode('punycode').encode('utf8')
+        print('Depuny result', query)
+
     main(query, data_dir)
