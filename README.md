@@ -5,6 +5,13 @@ This is phase 1: username discovery.
 
 More information about the archiving project can be found on the ArchiveTeam wiki: [Yahoo! Blog](http://archiveteam.org/index.php?title=Yahoo! Blog) and [Wretch](http://archiveteam.org/index.php?title=Wretch)
 
+Phase 2 is content grabbing. There's two projects:
+
+* https://github.com/ArchiveTeam/wretch-grab
+* https://github.com/ArchiveTeam/yahooblog2-grab
+
+
+
 Setup instructions
 =========================
 
